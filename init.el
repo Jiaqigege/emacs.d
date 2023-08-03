@@ -16,6 +16,7 @@
 ;; 
 (add-hook 'prog-mode-hook #'show-paren-mode)
 
-(column-number-mode t)
+(global-linum-mode 1)
 
+(set-face-attribute 'default nil :font "Hack Nerd Font Mono")
 
