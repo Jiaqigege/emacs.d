@@ -7,6 +7,12 @@
 ;; (set-face-attribute 'default nil :font "Hack Nerd Font Mono")
 
 
+;; 使用特殊的办法关闭Automatic Scrolling
+;; see:https://www.gnu.org/software/emacs/manual/html_node/emacs/Auto-Scrolling.html
+;; If you set scroll-conservatively to a large number (larger than 100), automatic scrolling never centers point, no matter how far point moves.
+(setq scroll-conservatively 100)
+
+
 (setq default-directory "~/")						; 设置默认目录
 (setq confirm-kill-emacs #'yes-or-no-p)				; 在关闭 Emacs 前询问是否确认关闭，防止误触
 (electric-pair-mode t)								; 自动补全括号
@@ -20,5 +26,6 @@
 (global-display-line-numbers-mode 1)				; 在 Window 显示行号
 (tool-bar-mode -1)									; （熟练后可选）关闭 Tool bar
 (when (display-graphic-p) (toggle-scroll-bar -1))	; 图形界面时关闭滚动条
+
 
 (provide 'init-startup)
