@@ -15,6 +15,6 @@
 
 (global-linum-mode 1)
 
-(set-face-attribute 'default nil :font "Hack Nerd Font Mono")
+;; (set-face-attribute 'default nil :font "Hack Nerd Font Mono")
 
 (provide 'init-startup)
