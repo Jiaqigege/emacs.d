@@ -9,5 +9,7 @@
 
 (use-package restart-emacs)
 
-(when (file-exists-p custom-file)
-	(load-file custom-file))
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))
+(load-file custom-file)
+
