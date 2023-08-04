@@ -1,7 +1,7 @@
 ;; 将当前用户的Emacs配置目录下的 "lisp" 子目录添加到 'load-path' 中，
 ;; 这样Emacs将在该目录下查找并加载额外的Emacs Lisp文件
 (add-to-list 'load-path
-             (expand-file-name (concat user-emacs-directory "lisp")))
+	     (expand-file-name (concat user-emacs-directory "lisp")))
 
 ;; 设置 'custom-file' 变量，用于保存由Emacs自动生成的自定义配置
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -22,22 +22,3 @@
 (unless (file-exists-p custom-file)
   (write-region "" nil custom-file))
 (load-file custom-file)
-
-(global-set-key (kbd "RET") 'newline-and-indent)
-
-;; 自定义两个函数
-;; Faster move cursor
-(defun next-ten-lines()
-  "Move cursor to next 10 lines."
-  (interactive)
-  (next-line 10))
-
-(defun previous-ten-lines()
-  "Move cursor to previous 10 lines."
-  (interactive)
-  (previous-line 10))
-;; 绑定到快捷键
-(global-set-key (kbd "M-n") 'next-ten-lines)            ; 光标向下移动 10 行
-(global-set-key (kbd "M-p") 'previous-ten-lines)        ; 光标向上移动 10 行
-
-

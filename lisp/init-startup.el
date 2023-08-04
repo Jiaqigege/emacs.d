@@ -24,8 +24,27 @@
 (setq make-backup-files nil)						; 关闭文件自动备份
 (add-hook 'prog-mode-hook #'hs-minor-mode)			; 编程模式下，可以折叠代码块
 (global-display-line-numbers-mode 1)				; 在 Window 显示行号
+(setq display-line-numbers-type 'relative)
 (tool-bar-mode -1)									; （熟练后可选）关闭 Tool bar
 (when (display-graphic-p) (toggle-scroll-bar -1))	; 图形界面时关闭滚动条
+
+
+
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+;; 自定义两个函数
+(defun next-ten-lines()
+  "Move cursor to next 10 lines."
+  (interactive)
+  (next-line 10))
+
+(defun previous-ten-lines()
+  "Move cursor to previous 10 lines."
+  (interactive)
+  (previous-line 10))
+;; 绑定到快捷键
+(global-set-key (kbd "M-n") 'next-ten-lines)            ; 光标向下移动 10 行
+(global-set-key (kbd "M-p") 'previous-ten-lines)        ; 光标向上移动 10 行
 
 
 (provide 'init-startup)
